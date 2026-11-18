@@ -1,31 +1,51 @@
-# TodoApp
+# 公開 URL
 
-React、TypeScript、Tailwind CSS を使用し、ローカルストレージでデータを永続化した「Todoアプリ」です。
+[Todoアプリ](https://random0210.github.io/react-todo-app/)
 
-## 開発履歴
+# 機能
 
-- 2026年10月16日：プロジェクト開始
+最初にこのTodoアプリを開くと、**ユーザー名を登録する画面**が表示されます。自分の好きな名前を入力して始めることができ、入力した名前やタスクのデータはブラウザ（ローカルストレージ）に自動保存されるため、2回目以降は登録画面をスキップしてすぐに使い始められます。名前はヘッダーのボタンからいつでも変更可能です。
 
-## ライセンス
+タスクの追加・削除はもちろん、**絞り込み（フィルター）**と**並び替え（ソート）**に対応しています。すべて・未完了・完了済みに加えて、期限が迫っているタスクだけを表示する「急ぎ」フィルターや、追加順・期限が近い順・優先度順での並び替えができます。
 
-MIT License
+また、期限が近づくとタスクの重要度アイコンが自動で変化します。通常は星（`★`）で表示されますが、**期限まで1週間を切ると鬼（`👹`）**に、**期限を過ぎるとどくろ（`💀`）**に変わり、カードの色も警告色に変化します。さらに、画面上部のバナーでも期限が1週間以内のタスクが何個あるかを知らせてくれます。
 
-Copyright (c) 2026 Yagi Ryosei
+そのほか、一度登録したタスクを後から直接書き換えられる**編集機能**や、完了済みのタスクをまとめて整理する一括削除機能も備えています。
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+# 開発背景
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+チュートリアルをベースに作成した際、最初はあらかじめ用意されたサンプルデータが表示される仕様でしたが、「自分専用のTodoアプリとして使えるようにしたい」と考え、最初にユーザー名を登録してローカルストレージに保存する仕組みを追加しました。
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+また、ただタスクを並べるだけでは「どの課題の締め切りが迫っているのか」を見落としやすいと感じたため、期限が1週間以内になるとアイコンが `👹` に変わり、期限切れになると `💀` に変わる機能を取り入れました。文字で日付を読むだけでなく、アイコンやカードの色でパッと見て緊急度が分かるように工夫しています。
+
+ソート機能やフィルター機能についても、課題が増えてきたときに「期限が近いもの」や「急ぎのタスク」をすぐに見つけられるように追加しました。一度登録したタスクの期限や内容を後から直したい場面が多かったため、削除して作り直さなくてもその場で修正できる編集機能も実装しています。
+
+UI面では、単なる縦並びのリストではなくダッシュボードのように見やすく整理された画面を目指し、カード型のレイアウトや色分けを調整して視認性を高めました。
+
+# 開発技術
+
+フロントエンドの開発には TypeScript と React を使用し、画面のデザインやレイアウトの調整には Tailwind CSS を使用しました。
+
+また、日時の計算やフォーマット処理には dayjs、タスクごとの固有IDの生成には uuid を取り入れ、ユーザー名やタスクデータの保存にはローカルストレージを使用しています。
+
+# 仕様画面
+
+### ユーザー名登録画面
+![ユーザー名登録画面](./images/screen_01.png)
+
+### メイン画面（タスク一覧・追加）
+![メイン画面](./images/screen_02.png)
+
+### 期限接近（👹）・期限切れ（💀）の警告表示
+![緊急度表示画面](./images/screen_03.png)
+
+### フィルター・ソート・編集画面
+![フィルター・ソート・編集画面](./images/screen_04.png)
+
+# 開発期間
+
+開発期間: 2026.10.23 ~ 2026.11.18 (約21時間)
+
+# ライセンス
+
+ [MIT License](https://opensource.org/licenses/MIT) 
