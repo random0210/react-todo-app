@@ -44,4 +44,4 @@ UI面では、単なる縦並びのリストではなくダッシュボードの
 
 # ライセンス
 
- [MIT License](https://opensource.org/licenses/MIT) 
+[MIT License](https://github.com/random0210/react-todo-app/blob/main/LICENSE)
